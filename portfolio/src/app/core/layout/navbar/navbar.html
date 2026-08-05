@@ -1,1 +1,81 @@
-<p>navbar works!</p>
+<nav class="navbar">
+
+    <div class="container navbar-container">
+
+        <!-- Logo -->
+        <a routerLink="/" class="logo">
+            K<span>Dev</span>
+        </a>
+
+
+        <!-- Menu desktop -->
+        <ul class="nav-menu">
+
+            <li>
+                <a routerLink="/" routerLinkActive="active">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/skills">
+                    Skills
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/experience">
+                    Experience
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/projects">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/services">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/calendar">
+                    Calendar
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+
+        <!-- Bouton contact -->
+        <a routerLink="/contact" class="btn btn-primary hire-btn">
+            Hire Me
+        </a>
+
+
+        <!-- Hamburger mobile -->
+        <button class="menu-toggle">
+
+            <i class="bi bi-list"></i>
+
+        </button>
+
+
+    </div>
+
+</nav>

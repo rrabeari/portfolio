@@ -1,22 +1,223 @@
-/* You can add global styles to this file, and also import other style files */
-:root{
-  --primary:#2563eb;
-  --secondary:#0f172a;
-  --accent:#f97316;
-  --success:#22c55e;
-  --danger:#ef4444;
 
-  --background:#ffffff;
-  --surface:#f8fafc;
 
-  --text:#334155;
-  --text-light:#64748b;
+/* =====================================================
+   KDEV PORTFOLIO THEME
+===================================================== */
 
-  --radius:12px;
-  --shadow:0 10px 30px rgba(0,0,0,.08);
+:root {
+
+    /* Couleurs principales */
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --secondary: #0F172A;
+    --accent: #06B6D4;
+
+    /* Couleurs de fond */
+    --background: #F8FAFC;
+    --surface: #FFFFFF;
+
+    /* Texte */
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-light: #FFFFFF;
+
+    /* Etats */
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+
+    /* Bordures */
+    --border-color: #E2E8F0;
+
+    /* Ombres */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.05);
+    --shadow-md: 0 8px 20px rgba(0,0,0,.08);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,.12);
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+
+    /* Transition */
+    --transition: .3s ease;
+
+    /* Largeur maximale */
+    --container-width: 1200px;
+
 }
+/*=======================================
+
+Reset CSS
+
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
-    background:#fff;
-    color:#334155;
+    background:var(--background);
+    color:var(--text-primary);
+    overflow-x:hidden;
+}
+
+
+
+img{
+    width:100%;
+    display:block;
+}
+a{
+    text-decoration:none;
+    color:inherit;
+}
+ul{
+    list-style:none;
+}
+.container{
+    width:90%;
+    max-width:var(--container-width);
+    margin:auto;
+}
+.section{
+    padding:100px 0;
+}
+.section-title{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:var(--secondary);
+
+}
+
+.section-subtitle{
+
+    text-align:center;
+
+    color:var(--text-secondary);
+
+    margin-bottom:70px;
+
+}
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 30px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+    border:none;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+.btn-outline{
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    background:white;
+
+}
+
+.btn-outline:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+.card{
+
+    background:white;
+
+    border-radius:var(--radius-md);
+
+    padding:30px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+@media(max-width:992px){
+
+.section{
+
+padding:80px 0;
+
+}
+
+.section-title{
+
+font-size:34px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.container{
+
+width:95%;
+
+}
+
 }
