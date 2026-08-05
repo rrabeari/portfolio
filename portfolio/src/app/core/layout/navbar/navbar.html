@@ -1,81 +1,163 @@
-<nav class="navbar">
-
-    <div class="container navbar-container">
-
-        <!-- Logo -->
-        <a routerLink="/" class="logo">
-            K<span>Dev</span>
-        </a>
+<nav class="navbar"
+     [class.scrolled]="isScrolled()">
 
 
-        <!-- Menu desktop -->
-        <ul class="nav-menu">
-
-            <li>
-                <a routerLink="/" routerLinkActive="active">
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/about">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/skills">
-                    Skills
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/experience">
-                    Experience
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/projects">
-                    Projects
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/services">
-                    Services
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/calendar">
-                    Calendar
-                </a>
-            </li>
-
-            <li>
-                <a routerLink="/contact">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
+<div class="container navbar-container">
 
 
-        <!-- Bouton contact -->
-        <a routerLink="/contact" class="btn btn-primary hire-btn">
-            Hire Me
-        </a>
+<!-- Logo -->
+
+<a routerLink="/" 
+   class="logo"
+   (click)="closeMenu()">
+
+K<span>Dev</span>
+
+</a>
 
 
-        <!-- Hamburger mobile -->
-        <button class="menu-toggle">
 
-            <i class="bi bi-list"></i>
+<!-- Menu -->
 
-        </button>
+<ul class="nav-menu"
+    [class.open]="isMenuOpen()">
 
 
-    </div>
+
+<li>
+<a routerLink="/"
+routerLinkActive="active"
+(click)="closeMenu()">
+Home
+</a>
+</li>
+
+
+<li>
+<a routerLink="/about"
+(click)="closeMenu()">
+About
+</a>
+</li>
+
+
+<li>
+<a routerLink="/skills"
+(click)="closeMenu()">
+Skills
+</a>
+</li>
+
+
+<li>
+<a routerLink="/experience"
+(click)="closeMenu()">
+Experience
+</a>
+</li>
+
+
+<li>
+<a routerLink="/projects"
+(click)="closeMenu()">
+Projects
+</a>
+</li>
+
+
+<li>
+<a routerLink="/services"
+(click)="closeMenu()">
+Services
+</a>
+</li>
+
+
+<li>
+<a routerLink="/calendar"
+(click)="closeMenu()">
+Calendar
+</a>
+</li>
+
+
+<li>
+<a routerLink="/contact"
+(click)="closeMenu()">
+Contact
+</a>
+</li>
+
+
+</ul>
+
+
+
+<!-- Actions -->
+
+<div class="nav-actions">
+
+
+<a href="assets/cv/Rivohasina-Rabearison-CV.pdf"
+download
+class="btn btn-primary cv-btn">
+
+<i class="bi bi-download"></i>
+
+CV
+
+</a>
+
+
+
+<!-- Social desktop -->
+
+<div class="social-links">
+
+
+<a href="https://github.com"
+target="_blank">
+
+<i class="bi bi-github"></i>
+
+</a>
+
+
+<a href="https://linkedin.com"
+target="_blank">
+
+<i class="bi bi-linkedin"></i>
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<!-- Hamburger -->
+
+
+<button class="menu-toggle"
+(click)="toggleMenu()">
+
+
+<i class="bi"
+[class.bi-list]="!isMenuOpen()"
+[class.bi-x]="isMenuOpen()">
+
+</i>
+
+
+</button>
+
+
+
+</div>
 
 </nav>
