@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --primary:#2563eb;
+  --secondary:#0f172a;
+  --accent:#f97316;
+  --success:#22c55e;
+  --danger:#ef4444;
+
+  --background:#ffffff;
+  --surface:#f8fafc;
+
+  --text:#334155;
+  --text-light:#64748b;
+
+  --radius:12px;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+    color:#334155;
+}
