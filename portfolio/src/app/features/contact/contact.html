@@ -1,1 +1,73 @@
-<p>contact works!</p>
+<section class="section contact">
+
+
+<div class="container">
+
+
+<div class="section-header">
+
+<h2 class="section-title">
+Contact
+</h2>
+
+<p class="section-subtitle">
+Parlons de votre projet
+</p>
+
+</div>
+
+
+
+
+<div class="contact-form">
+
+
+<input
+
+class="form-control"
+
+placeholder="Nom"
+
+[(ngModel)]="contact.name">
+
+
+<input
+
+class="form-control"
+
+placeholder="Email"
+
+[(ngModel)]="contact.email">
+
+
+<textarea
+
+class="form-control"
+
+rows="5"
+
+placeholder="Message"
+
+[(ngModel)]="contact.message">
+</textarea>
+
+
+
+<button
+
+class="btn btn-primary"
+
+(click)="send()">
+
+Envoyer
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
