@@ -1,0 +1,121 @@
+@if (project(); as proj) {
+  <div class="container py-5">
+    <!-- Navigation retour -->
+    <div class="mb-4">
+      <a routerLink="/projects" class="btn btn-outline-secondary btn-sm">
+        ← Retour aux projets
+      </a>
+    </div>
+
+    <!-- En-tête de l'Étude de Cas -->
+    <header class="mb-5">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="badge bg-primary fs-6">{{ proj.category }}</span>
+        <span class="text-muted small">Terminé le {{ proj.completionDate | date:'dd/MM/yyyy' }}</span>
+      </div>
+      <h1 class="display-5 fw-bold mb-3">{{ proj.title }}</h1>
+      <p class="lead text-secondary">{{ proj.shortDescription }}</p>
+      
+      <div class="d-flex flex-wrap gap-2 mt-3">
+        @for (tag of proj.tags; track tag) {
+          <span class="badge bg-light text-dark border">{{ tag }}</span>
+        }
+      </div>
+
+      <div class="mt-4">
+        @if (proj.githubUrl) {
+          <a [href]="proj.githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+            <i class="bi bi-github me-2"></i> Voir sur GitHub
+          </a>
+        }
+      </div>
+    </header>
+
+    <hr class="my-5" />
+
+    <!-- Vue d'ensemble & Problématique Métier -->
+    <section class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card h-100 border-0 bg-light p-4">
+          <h2 class="h5 fw-bold text-dark mb-3">📌 Vue d'ensemble</h2>
+          <p class="mb-0 text-secondary">{{ proj.caseStudy.overview }}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 border-0 bg-light p-4">
+          <h2 class="h5 fw-bold text-dark mb-3">🎯 Problématique Métier</h2>
+          <p class="mb-0 text-secondary">{{ proj.caseStudy.businessProblem }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métriques Clés -->
+    <section class="mb-5">
+      <h2 class="h4 fw-bold mb-4">📊 Métriques Clés & Impact</h2>
+      <div class="row g-3">
+        @for (metric of proj.caseStudy.keyMetrics; track metric.label) {
+          <div class="col-sm-6 col-md-3">
+            <div class="card text-center p-3 border-0 shadow-sm">
+              <span class="text-muted small mb-1">{{ metric.label }}</span>
+              <span class="fs-4 fw-bold text-primary">{{ metric.value }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Étapes du Pipeline / Architecture -->
+    <section class="mb-5">
+      <h2 class="h4 fw-bold mb-4">🛠️ Pipeline & Architecture</h2>
+      <div class="list-group list-group-flush shadow-sm rounded">
+        @for (step of proj.caseStudy.pipelineSteps; track step.title) {
+          <div class="list-group-item p-4">
+            <h3 class="h6 fw-bold mb-1">{{ step.title }}</h3>
+            <p class="text-secondary small mb-0">{{ step.description }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Performances Modèle ML (Si applicable) -->
+    @if (proj.caseStudy.mlResults && proj.caseStudy.mlResults.modelName !== 'N/A (System Architecture)' && proj.caseStudy.mlResults.modelName !== 'N/A (Fullstack E-Commerce)') {
+      <section class="mb-5 p-4 rounded bg-dark text-white">
+        <h2 class="h4 fw-bold text-warning mb-3">🤖 Performances du Modèle ML</h2>
+        <div class="row text-center g-3">
+          <div class="col-6 col-md-3">
+            <div class="small text-uppercase text-muted">Modèle</div>
+            <div class="fw-bold">{{ proj.caseStudy.mlResults.modelName }}</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="small text-uppercase text-muted">MAE</div>
+            <div class="fw-bold">{{ proj.caseStudy.mlResults.mae }}</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="small text-uppercase text-muted">R² Score</div>
+            <div class="fw-bold">{{ proj.caseStudy.mlResults.r2 }}</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="small text-uppercase text-muted">Gain / Baseline</div>
+            <div class="fw-bold text-success">{{ proj.caseStudy.mlResults.baselineGainMAE }}</div>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- Roadmap -->
+    <section class="mb-5">
+      <h2 class="h4 fw-bold mb-3">🚀 Perspectives & Améliorations</h2>
+      <ul class="list-group list-group-numbered border-0">
+        @for (item of proj.caseStudy.futureRoadmap; track item) {
+          <li class="list-group-item border-0 px-0 text-secondary">{{ item }}</li>
+        }
+      </ul>
+    </section>
+  </div>
+} @else {
+  <div class="container py-5 text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  </div>
+}

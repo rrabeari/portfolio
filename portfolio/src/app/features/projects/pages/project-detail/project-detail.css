@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+.list-group-item {
+  border-left: 4px solid var(--bs-primary, #0d6efd);
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}

@@ -1,46 +1,32 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, signal, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    RouterLink,
+    CommonModule, 
+    RouterLink, 
     RouterLinkActive
   ],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css',
+  styleUrl: './navbar.css'
 })
 export class Navbar {
-
-  // Etat menu mobile
+  isScrolled = signal(false);
   isMenuOpen = signal(false);
 
-  // Etat scroll
-  isScrolled = signal(false);
-
-
-  toggleMenu(){
-
-    this.isMenuOpen.update(value => !value);
-
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled.set(window.scrollY > 20);
   }
 
+  toggleMenu() {
+    this.isMenuOpen.update(v => !v);
+  }
 
-  closeMenu(){
-
+  closeMenu() {
     this.isMenuOpen.set(false);
-
   }
-
-
-
-  @HostListener('window:scroll')
-  onScroll(){
-
-    this.isScrolled.set(window.scrollY > 50);
-
-  }
-
-
 }
